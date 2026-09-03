@@ -1,4 +1,4 @@
-package camoweed.exampleitem;
+package camoweed.rubylinks;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
@@ -9,17 +9,17 @@ import turniplabs.halplibe.event.defs.ClientEvents;
 import turniplabs.halplibe.helper.TextureHelper;
 import turniplabs.halplibe.util.dependency.Key;
 
-import static camoweed.exampleitem.ExampleMod.MOD_ID;
+import static camoweed.rubylinks.Rubylinks.MOD_ID;
 
-public class ExampleClient implements ClientModInitializer {
+public class RubylinksClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		ClientEvents.BEFORE_CLIENT_START.listen(Key.of(MOD_ID), ExampleClient::beforeClientStart);
-		ClientEvents.ITEM_MODEL_RELOAD.listen(Key.of(MOD_ID), ExampleClient::initItemModels);
+		ClientEvents.BEFORE_CLIENT_START.listen(Key.of(MOD_ID), RubylinksClient::beforeClientStart);
+		ClientEvents.ITEM_MODEL_RELOAD.listen(Key.of(MOD_ID), RubylinksClient::initItemModels);
 	}
 
 	public static void beforeClientStart() {
-		ExampleClient.registerTextures();
+		RubylinksClient.registerTextures();
 	}
 
 	public static void registerTextures() {
@@ -29,9 +29,9 @@ public class ExampleClient implements ClientModInitializer {
 	}
 
 	public static void initItemModels(ItemModelDispatcher dispatcher) {
-		dispatcher.addDispatch(new ItemModelStandard(ExampleItems.GUITAR)
+		dispatcher.addDispatch(new ItemModelStandard(RubylinksItems.RUBYGLASS_GEM)
 			//give it a texture
-			.setIcon("exampleitem:item/guitar")
+			.setIcon("rubylinks:item/rubyglass_gem")
 			//make it display like a paintbrush
 			.setDisplayPos("firstperson_righthand", ItemModelDispatcher.HANDHELD_FIRST_PERSON_RIGHT_HAND)
 			.setDisplayPos("firstperson_lefthand", ItemModelDispatcher.HANDHELD_FIRST_PERSON_LEFT_HAND)

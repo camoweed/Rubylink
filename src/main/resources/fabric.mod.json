@@ -1,36 +1,19 @@
 {
 	"schemaVersion": 1,
-	"id": "exampleitem",
+	"id": "rubylinks",
 	"version": "${version}",
-	"name": "Example Item",
-	"description": "This mod aims to help new BTA modders add an item.",
-	"authors": [
-		"Turnip Labs",
-		"camoweed_",
-		"YOU!"
-	],
-	"contact": {
-		"homepage": "",
-		"sources": ""
-	},
+	"name": "Rubylinks",
+	"description": "",
+	"authors": ["camoweed_"],
+	"contact": {"homepage": "","sources": ""},
 	"icon": "icon.png",
 	"license": "CC0-1.0",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-          "camoweed.exampleitem.ExampleMod"
-		],
-		"client": ["camoweed.exampleitem.ExampleClient"]
+		"main": ["camoweed.rubylinks.Rubylinks"],
+		"client": ["camoweed.rubylinks.RubylinksClient"]
 	},
-	"mixins": [
-      "exampleitem.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=${fabricloader}",
-		"minecraft": "*",
-		"java": ">=${java}"
-	},
-	"suggests": {
-		"modmenu": ">=${modmenu}"
-	}
+	"mixins": ["rubylinks.mixins.json"],
+	"depends": {"fabricloader": ">=${fabricloader}","minecraft": "*","java": ">=${java}"},
+	"suggests": {"modmenu": ">=${modmenu}"}
 }

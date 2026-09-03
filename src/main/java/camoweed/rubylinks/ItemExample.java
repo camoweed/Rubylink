@@ -1,4 +1,4 @@
-package camoweed.exampleitem;
+package camoweed.rubylinks;
 
 import net.minecraft.core.block.entity.TileEntityActivator;
 import net.minecraft.core.entity.player.Player;

@@ -1,19 +1,19 @@
-package camoweed.exampleitem;
+package camoweed.rubylinks;
 
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.Items;
 import turniplabs.halplibe.helper.ItemBuilder;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
 
-import static camoweed.exampleitem.ExampleMod.MOD_ID;
+import static camoweed.rubylinks.Rubylinks.MOD_ID;
 
-public class ExampleItems {
-	public static Item GUITAR;
+public class RubylinksItems {
+	public static Item RUBYGLASS_GEM;
 
 	public static void aftterItemInit() {
-		GUITAR = new ItemBuilder(MOD_ID)
+		RUBYGLASS_GEM = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.After(() -> Items.WAND_NBT))
 			.setStackSize(1)
-			.build(new ItemExample("guitar","exampleitem:item/guitar",1743));
+			.build(new ItemExample("rubyglass.gem","rubylinks:item/rubyglass_gem",1743));
 	}
 }

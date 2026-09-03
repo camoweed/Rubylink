@@ -1,4 +1,4 @@
-package camoweed.exampleitem;
+package camoweed.rubylinks;
 
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -7,21 +7,22 @@ import turniplabs.halplibe.HalpLibe;
 import turniplabs.halplibe.event.defs.CommonEvents;
 import turniplabs.halplibe.util.dependency.Key;
 
-public class ExampleMod implements ModInitializer {
-	public static final String MOD_ID = HalpLibe.registerMod("exampleitem", true);
+public class Rubylinks implements ModInitializer {
+	public static final String MOD_ID = HalpLibe.registerMod("rubylinks", true);
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static boolean forceChunkLoads = false;
 
 	@Override
 	public void onInitialize() {
 		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), this::beforeGameStart);
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
 
-		// you need to initialise your items and models
-		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), ExampleItems::aftterItemInit);
+		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), RubylinksItems::aftterItemInit);
 		//recipes too
-		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), ExampleRecipes::initializeRecipes);
+		//CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initializeRecipes);
 
-		LOGGER.info("u did item ☻");
+		LOGGER.info("☻");
 	}
 
 	public void beforeGameStart() {
