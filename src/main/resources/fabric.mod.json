@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "exampleitem",
+	"version": "${version}",
+	"name": "Example Item",
+	"description": "This mod aims to help new BTA modders add an item.",
+	"authors": [
+		"Turnip Labs",
+		"camoweed_",
+		"YOU!"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"icon": "icon.png",
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "camoweed.exampleitem.ExampleMod"
+		],
+		"client": ["camoweed.exampleitem.ExampleClient"]
+	},
+	"mixins": [
+      "exampleitem.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${fabricloader}",
+		"minecraft": "*",
+		"java": ">=${java}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu}"
+	}
+}
