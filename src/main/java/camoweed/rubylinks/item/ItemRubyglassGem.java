@@ -46,11 +46,11 @@ public class ItemRubyglassGem extends Item {
 				entityplayer.score -= cost;
 				Side side = TileEntityRubyglassCore.side();
 				((ITeleporter) entityplayer).rubylinks$teleport(destX + side.offsetX() + 0.5f, destY + side.offsetY(), destZ + side.offsetZ() + 0.5f);
-				TileEntityRubyglassCore.setInUse(false);
+				//TileEntityRubyglassCore.setInUse(false);
 			} else if (!world.isClientSide) {
 				entityplayer.sendMessageTranslated("rubylinks.teleport.fail.missing");
 			}
-			itemstack.getData().putBoolean("rubylinks$has_location", false);
+		//	itemstack.getData().putBoolean("rubylinks$has_location", false);
 		}
 		return itemstack;
 	}

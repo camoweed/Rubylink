@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemModelRubyglassGem extends ItemModelStandard {
-	private static final IconCoordinate star_connected = TextureRegistry.getTexture(Rubylinks.MOD_ID + ":item/connected_star");
+	private static final IconCoordinate RUBGLASS_GEM = TextureRegistry.getTexture(Rubylinks.MOD_ID + ":item/rubyglass_gem");
 
 	//TODO remove the namespace constructor with namespace, it still need for some textures so I leave it for later
 	public ItemModelRubyglassGem(final Item item, final String namespace) {
@@ -21,8 +21,8 @@ public class ItemModelRubyglassGem extends ItemModelStandard {
 	@NotNull
 	@Override
 	public IconCoordinate getIcon(@Nullable final Entity entity, final ItemStack itemStack) {
-		if (itemStack.getData().getBoolean("moonsteel$has_location")) {
-			return star_connected;
+		if (itemStack.getData().getBoolean("rubylinks$has_location")) {
+			return RUBGLASS_GEM;
 		}
 		return super.getIcon(entity, itemStack);
 	}
