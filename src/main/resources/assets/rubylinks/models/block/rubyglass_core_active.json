@@ -1,6 +1,12 @@
 {
   "parent": "rubylinks:block/rubyglass_core",
   "textures": {
-    "front": "rubylinks:block/rubyglass_core_front_active"
+    "top": "rubylinks:block/rubyglass_core_front",
+    "front": "rubylinks:block/rubyglass_core_front_active",
+    "bottom": "rubylinks:block/rubyglass_core_front_active",
+    "back": "rubylinks:block/rubyglass_core_front_active",
+    "front": "rubylinks:block/rubyglass_core_front_active",
+    "left": "rubylinks:block/rubyglass_core_front_active",
+    "right": "rubylinks:block/rubyglass_core_front_active"
   }
 }
