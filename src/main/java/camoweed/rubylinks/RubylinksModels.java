@@ -22,6 +22,7 @@ public class RubylinksModels {
 	public static void initItemModels(final ItemModelDispatcher dispatcher) {
 		dispatcher.addDispatch(setIcon(new ItemModelRubyglassGem(RubylinksItems.RUBYGLASS_GEM, null), MOD_ID + ":item/rubyglass_gem_off").setFullBright());
 	}
+	/*
 	public static @NotNull ItemModelStandard makeModel(@NotNull final Item item, @NotNull final String textureValue) {
 		return setIcon(new ItemModelStandard(item, true), NamespaceID.fromPool(MOD_ID, "item/" + textureValue));
 	}
@@ -32,6 +33,7 @@ public class RubylinksModels {
 			.setDisplayPos("thirdperson_righthand", HANDHELD_THIRD_PERSON_RIGHT_HAND)
 			.setDisplayPos("thirdperson_lefthand", HANDHELD_THIRD_PERSON_LEFT_HAND);
 	}
+	*/
 
 	public static <T extends ItemModelStandard> @NotNull T setIcon(@NotNull final T model, @NotNull final String texture) {
 		model.icon = TextureRegistry.getTexture(texture);

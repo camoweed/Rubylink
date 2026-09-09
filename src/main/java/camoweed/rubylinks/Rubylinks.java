@@ -21,11 +21,9 @@ public class Rubylinks implements ModInitializer {
 	public void onInitialize() {
 		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), this::beforeGameStart);
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
-		//recipes too
-		//CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initializeRecipes);
-		//CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initNamespaces);
-
-		LOGGER.info("☻");
+		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initializeRecipes);
+		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initNamespaces);
+		LOGGER.info("Rubylinks active.");
 	}
 
 	public void beforeGameStart() {
