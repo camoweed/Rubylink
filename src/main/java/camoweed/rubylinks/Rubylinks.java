@@ -1,7 +1,10 @@
 package camoweed.rubylinks;
 
 import camoweed.rubylinks.block.RubylinksBlocks;
+import camoweed.rubylinks.block.TileEntityRubyglassCore;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.core.block.entity.TileEntityDispatcher;
+import net.minecraft.core.util.collection.NamespaceID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.HalpLibe;
@@ -26,6 +29,10 @@ public class Rubylinks implements ModInitializer {
 	}
 
 	public void beforeGameStart() {
+		TileEntityDispatcher.addMapping(
+			TileEntityRubyglassCore.class,
+			NamespaceID.fromPool(MOD_ID, "rubylinks$rubyglass_core")
+		);
 		RubylinksItems.init();
 		RubylinksBlocks.init();
 	}

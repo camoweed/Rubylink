@@ -42,11 +42,11 @@ public class ItemRubyglassGem extends Item {
 			Rubylinks.forceChunkLoads = false;
 			ChunkTilePos chunkTilePos = new ChunkTilePos(destX, destY, destZ);
 			TileEntity te = chunk.getTileEntity(chunkTilePos);
-			if (te instanceof TileEntityRubyglassCore tileEntityStellarRewinder && tileEntityStellarRewinder.canTeleport(itemstack)){
+			if (te instanceof TileEntityRubyglassCore TileEntityRubyglassCore && TileEntityRubyglassCore.canTeleport(itemstack)){
 				entityplayer.score -= cost;
-				Side side = tileEntityStellarRewinder.side();
+				Side side = TileEntityRubyglassCore.side();
 				((ITeleporter) entityplayer).rubylinks$teleport(destX + side.offsetX() + 0.5f, destY + side.offsetY(), destZ + side.offsetZ() + 0.5f);
-				tileEntityStellarRewinder.setInUse(false);
+				TileEntityRubyglassCore.setInUse(false);
 			} else if (!world.isClientSide) {
 				entityplayer.sendMessageTranslated("rubylinks.teleport.fail.missing");
 			}
