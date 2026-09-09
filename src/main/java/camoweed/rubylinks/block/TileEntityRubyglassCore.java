@@ -47,7 +47,7 @@ public class TileEntityRubyglassCore extends TileEntity {
 		stack.getData().putInt("rubylinks$y", this.tilePos.y() );
 		stack.getData().putInt("rubylinks$z", this.tilePos.z() );
 		stack.getData().putInt("rubylinks$dimension", this.worldObj.dimension.id);
-		stack.getData().putLong("rubylinks$checkcode", this.checkCode);
+		//stack.getData().putLong("rubylinks$checkcode", this.checkCode);
 		setInUse(true);
 		return stack;
 	}
@@ -56,7 +56,7 @@ public class TileEntityRubyglassCore extends TileEntity {
 		can &= stack.getData().getInteger("rubylinks$x") == this.tilePos.x();
 		can &= stack.getData().getInteger("rubylinks$y") == this.tilePos.y();
 		can &= stack.getData().getInteger("rubylinks$z") == this.tilePos.z();
-		can &= stack.getData().getLong("rubylinks$checkcode") == this.checkCode;
+		//can &= stack.getData().getLong("rubylinks$checkcode") == this.checkCode;
 		return can;
 	}
 	public void setInUse(boolean flag){

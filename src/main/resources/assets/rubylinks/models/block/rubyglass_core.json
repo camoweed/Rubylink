@@ -8,11 +8,11 @@
     }
   },
   "textures": {
-    "top": "rubylinks:block/rubyglass_core_front",
-    "bottom": "rubylinks:block/rubyglass_core_front",
-    "back": "rubylinks:block/rubyglass_core_front",
+    "top": "rubylinks:block/rubyglass_core_side",
+    "bottom": "rubylinks:block/rubyglass_core_side",
+    "back": "rubylinks:block/rubyglass_core_side",
     "front": "rubylinks:block/rubyglass_core_front",
-    "left": "rubylinks:block/rubyglass_core_front",
-    "right": "rubylinks:block/rubyglass_core_front"
+    "left": "rubylinks:block/rubyglass_core_side",
+    "right": "rubylinks:block/rubyglass_core_side"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "rubylinks:block/rubyglass_core",
   "textures": {
-    "top": "rubylinks:block/rubyglass_core_front",
+    "top": "rubylinks:block/rubyglass_core_side_active",
     "front": "rubylinks:block/rubyglass_core_front_active",
-    "bottom": "rubylinks:block/rubyglass_core_front_active",
-    "back": "rubylinks:block/rubyglass_core_front_active",
+    "bottom": "rubylinks:block/rubyglass_core_side_active",
+    "back": "rubylinks:block/rubyglass_core_side_active",
     "front": "rubylinks:block/rubyglass_core_front_active",
-    "left": "rubylinks:block/rubyglass_core_front_active",
-    "right": "rubylinks:block/rubyglass_core_front_active"
+    "left": "rubylinks:block/rubyglass_core_side_active",
+    "right": "rubylinks:block/rubyglass_core_side_active"
   }
 }
