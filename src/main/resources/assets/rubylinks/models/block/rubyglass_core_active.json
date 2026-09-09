@@ -1,0 +1,6 @@
+{
+  "parent": "rubylinks:block/rubyglass_core",
+  "textures": {
+    "front": "rubylinks:block/rubyglass_core_front_active"
+  }
+}

@@ -11,6 +11,10 @@ import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.chunk.Chunk;
+import net.minecraft.core.world.pos.ChunkPos;
+import net.minecraft.core.world.pos.ChunkTilePos;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class ItemRubyglassGem extends Item {
 	public ItemRubyglassGem(String name, String namespaceId, int id) {
@@ -18,38 +22,36 @@ public class ItemRubyglassGem extends Item {
 	}
 
 	@Override
-	public ItemStack onUse(ItemStack itemstack, World world, Player entityPlayer) {
-
+	public @Nullable ItemStack onUse(@NotNull ItemStack itemstack, @NotNull World world, @NotNull Player entityplayer) {
 		if (itemstack.getData().getBoolean("rubylinks$has_location")){
 			int destX = itemstack.getData().getInteger("rubylinks$x");
 			int destY = itemstack.getData().getInteger("rubylinks$y");
 			int destZ = itemstack.getData().getInteger("rubylinks$z");
 			int dim = itemstack.getData().getInteger("rubylinks$dimension");
-
 			if (dim != world.dimension.id) {
-				entityPlayer.sendTranslatedChatMessage("rubylinks.teleport.fail.dimension");
+				entityplayer.sendMessageTranslated("rubylinks.teleport.fail.dimension");
 				return itemstack;
 			}
-			int cost = MathHelper.floor(entityPlayer.distanceTo(destX, destY, destZ));
-			if (entityPlayer.score < cost) {
-				entityPlayer.sendTranslatedChatMessage("moonsteel.teleport.fail.score");
+			int cost = MathHelper.floor(entityplayer.distanceTo(destX, destY, destZ));
+			if (entityplayer.score < cost) {
+				entityplayer.sendMessageTranslated("rubylinks.teleport.fail.score");
 				return itemstack;
 			}
 			Rubylinks.forceChunkLoads = true;
-			Chunk chunk = world.getChunkProvider().provideChunk(destX >> 4, destZ >> 4);
+			Chunk chunk = world.getChunkProvider().provideChunk(new ChunkPos(destX >> 4, destZ >> 4), true);
 			Rubylinks.forceChunkLoads = false;
-			TileEntity te = chunk.getTileEntity(destX &0xF, destY, destZ &0xF);
-			if (te instanceof TileEntityRubyglassCore && ((TileEntityRubyglassCore) te).canTeleport(itemstack)){
-				entityPlayer.score -= cost;
-				Side side = ((TileEntityRubyglassCore) te).side;
-				((ITeleporter) entityPlayer).rubylinks$teleport(destX + side.offsetX() + 0.5f, destY + side.offsetY(), destZ + side.offsetZ() + 0.5f);
-				((TileEntityRubyglassCore) te).setInUse(false);
-				} else if (!world.isClientSide) {
-				entityPlayer.sendTranslatedChatMessage("moonsteel.teleport.fail.missing");
+			ChunkTilePos chunkTilePos = new ChunkTilePos(destX, destY, destZ);
+			TileEntity te = chunk.getTileEntity(chunkTilePos);
+			if (te instanceof TileEntityRubyglassCore tileEntityStellarRewinder && tileEntityStellarRewinder.canTeleport(itemstack)){
+				entityplayer.score -= cost;
+				Side side = tileEntityStellarRewinder.side();
+				((ITeleporter) entityplayer).rubylinks$teleport(destX + side.offsetX() + 0.5f, destY + side.offsetY(), destZ + side.offsetZ() + 0.5f);
+				tileEntityStellarRewinder.setInUse(false);
+			} else if (!world.isClientSide) {
+				entityplayer.sendMessageTranslated("rubylinks.teleport.fail.missing");
 			}
-			itemstack.getData().putBoolean("moonsteel$has_location", false);
+			itemstack.getData().putBoolean("rubylinks$has_location", false);
 		}
 		return itemstack;
 	}
-
 }

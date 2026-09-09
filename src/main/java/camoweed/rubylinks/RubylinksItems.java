@@ -1,19 +1,17 @@
 package camoweed.rubylinks;
 
+import camoweed.rubylinks.item.ItemRubyglassGem;
 import net.minecraft.core.item.Item;
-import net.minecraft.core.item.Items;
 import turniplabs.halplibe.helper.ItemBuilder;
-import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
 
 import static camoweed.rubylinks.Rubylinks.MOD_ID;
 
 public class RubylinksItems {
-	public static Item RUBYGLASS_GEM;
+	RubylinksItems(){}
+	public static final Item RUBYGLASS_GEM = new ItemBuilder(MOD_ID)
+		.setStackSize(1)
+		.build(new ItemRubyglassGem("rubyglass.gem.connected", MOD_ID + ":item/rubyglass_gem_connected", 1629));
+	public static void init() {
 
-	public static void aftterItemInit() {
-		RUBYGLASS_GEM = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.After(() -> Items.WAND_NBT))
-			.setStackSize(1)
-			.build(new ItemExample("rubyglass.gem","rubylinks:item/rubyglass_gem",1743));
 	}
 }

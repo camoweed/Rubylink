@@ -1,5 +1,6 @@
 package camoweed.rubylinks;
 
+import camoweed.rubylinks.block.RubylinksBlocks;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,16 +18,16 @@ public class Rubylinks implements ModInitializer {
 	public void onInitialize() {
 		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), this::beforeGameStart);
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
-
-		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), RubylinksItems::aftterItemInit);
 		//recipes too
 		//CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initializeRecipes);
+		//CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), RubylinksRecipes::initNamespaces);
 
 		LOGGER.info("☻");
 	}
 
 	public void beforeGameStart() {
-
+		RubylinksItems.init();
+		RubylinksBlocks.init();
 	}
 
 	public void afterGameStart() {
